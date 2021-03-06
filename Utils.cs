@@ -41,5 +41,19 @@ namespace DiscordNotifier
 
             return ipAddress;
         }
+
+        public static string GetServerVersion()
+        {
+            string serverVersion = Version.CombineVersion(global::Version.m_major, global::Version.m_minor, global::Version.m_patch); ;
+
+            return serverVersion;
+        }
+
+        public static string GetServerName()
+        {
+            string serverName = ZNet.m_ServerName;
+
+            return serverName;
+        }
     }
 }

@@ -26,13 +26,16 @@ namespace DiscordNotifier
         {
             if (!Main.Configuration.Events[ValheimEvent.OnServerStarted].Value) return;
 
+            string serverVersion = Utils.GetServerVersion();
+            string serverName = Utils.GetServerName();
+
             if (ipAddress == null)
             {
-                Utils.PostMessage("Server has started");
+                Utils.PostMessage($"Server: {serverName}, has started (Version: {serverVersion})");
             }
             else
             {
-                Utils.PostMessage("Server has started at: " + ipAddress);
+                Utils.PostMessage($"Server: {serverName}, has started at: {ipAddress} (Version: {serverVersion})");
             }
         }
 

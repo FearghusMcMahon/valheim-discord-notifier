@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 namespace DiscordNotifier
 {
@@ -26,17 +25,7 @@ namespace DiscordNotifier
         {
             if (!Main.Configuration.Events[ValheimEvent.OnServerStarted].Value) return;
 
-            string serverVersion = Utils.GetServerVersion();
-            string serverName = Utils.GetServerName();
-
-            if (ipAddress == null)
-            {
-                Utils.PostMessage($"Server: {serverName}, has started (Version: {serverVersion})");
-            }
-            else
-            {
-                Utils.PostMessage($"Server: {serverName}, has started at: {ipAddress} (Version: {serverVersion})");
-            }
+            Utils.PostMessage(GetRandomMessage(Main.Configuration.messages.OnServerStart).Replace("{{serverAddress}}", ipAddress));
         }
 
 
@@ -44,7 +33,7 @@ namespace DiscordNotifier
         {
             if (!Main.Configuration.Events[ValheimEvent.OnServerStopped].Value) return;
 
-            Utils.PostMessage("Server has stopped");
+            Utils.PostMessage(GetRandomMessage(Main.Configuration.messages.OnServerStop));
         }
 
 

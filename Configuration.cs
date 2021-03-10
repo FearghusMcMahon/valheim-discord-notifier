@@ -16,7 +16,7 @@ namespace DiscordNotifier
             {"OnPlayerDeath", new[] {"{{username}}", "{{userId}}"}},
             {"OnPlayerDisconnect", new[] {"{{username}}", "{{userId}}"}},
             {"OnPlayerJoined", new[] {"{{username}}", "{{userId}}"}},
-            {"OnServerStart", new[] {"{{serverAddress}}"}},
+            {"OnServerStart", new[] {"{{serverAddress}}","{{serverName}}","{{serverVersion}}"}},
             {"OnServerStop", new string[]{}},
         };
 

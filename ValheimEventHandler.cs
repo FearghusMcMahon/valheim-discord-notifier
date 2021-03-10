@@ -25,7 +25,7 @@ namespace DiscordNotifier
         {
             if (!Main.Configuration.Events[ValheimEvent.OnServerStarted].Value) return;
 
-            Utils.PostMessage(GetRandomMessage(Main.Configuration.messages.OnServerStart).Replace("{{serverAddress}}", ipAddress));
+            Utils.PostMessage(GetRandomMessage(Main.Configuration.messages.OnServerStart).Replace("{{serverAddress}}", ipAddress).Replace("{{serverName}}", Utils.GetServerName()).Replace("{{serverVersion}}", Utils.GetServerVersion()));
         }
 
 
